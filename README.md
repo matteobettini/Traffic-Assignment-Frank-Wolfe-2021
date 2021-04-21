@@ -4,7 +4,7 @@ This simple script computes the traffic assignment using the **Frank-Wolfe algor
 
 It can compute the **User Equilibrium (UE)** assignment or the **System Optimal (SO)** assignment.
 
-The travel time cost function that models the effect of congestion on travel time is pluggable and definable by users.
+The travel time cost function that models the effect of congestion on travel time is pluggable and definable by the users.
 
 Currently we provide three implementations:
 * BPR cost function ([see more](https://rdrr.io/rforge/travelr/man/bpr.function.html))
