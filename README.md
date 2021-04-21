@@ -13,7 +13,9 @@ Currently, we provide three cost function implementations:
 
 # How to use
 
-To use the script, simply call the `computeAssingment()` method in the `assignment.py` script.
+First, clone the repository to a local directory.
+
+To use the algorithm, simply call the `computeAssingment()` method in the `assignment.py` script.
 
 The documentation of the method provides a through description of all the available parameters and their meaning.
 
