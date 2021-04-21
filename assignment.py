@@ -476,7 +476,7 @@ if __name__ == '__main__':
     computeAssingment(net_file=str(PathUtils.sioux_falls_net_file),
                       algorithm="FW",
                       costFunction=BPRcostFunction,
-                      systemOptimal=True,
+                      systemOptimal=False,
                       accuracy=0.0001,
                       maxIter=1000,
                       maxTime=60)
