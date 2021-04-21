@@ -11,6 +11,8 @@ Currently, we provide three cost function implementations:
 * Greenshields cost function (see Greenshields, B. D., et al. "A study of traffic capacity." Highway research board proceedings. Vol. 1935. National Research Council (USA), Highway Research Board, 1935.)
 * Constant cost function (no congestion effects)
 
+Our implementation has been tested against all the networks for which a solution is available on [TransportationNetworks](https://github.com/bstabler/TransportationNetworks) and has always obtained the correct solution.
+
 # How to use
 
 First, clone the repository to a local directory.
@@ -22,7 +24,8 @@ The documentation of the method provides a through description of all the availa
 # Importing networks
  Networks and demand files must be specified in the TNTP data format.
  
- A through description of the TNTP format and a wide range of real transportation networks to test the algorithm on is avaialble at [TransportationNetworks](https://github.com/bstabler/TransportationNetworks)
+ A through description of the TNTP format and a wide range of real transportation networks to test the algorithm on is avaialble at [TransportationNetworks](https://github.com/bstabler/TransportationNetworks).
+
  
  # Acknowledgments
  
