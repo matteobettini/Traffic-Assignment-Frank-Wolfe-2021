@@ -22,7 +22,7 @@ The documentation of the method provides a through description of all the availa
 # Importing networks
  Networks and demand files must be specified in the TNTP data format.
  
- A through description of the TNTP format and a wide raange of real transportation networks to test the algorithm on is avaialble at [TransportationNetworks](https://github.com/bstabler/TransportationNetworks)
+ A through description of the TNTP format and a wide range of real transportation networks to test the algorithm on is avaialble at [TransportationNetworks](https://github.com/bstabler/TransportationNetworks)
  
  # Acknowledgments
  
