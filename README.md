@@ -6,7 +6,7 @@ It can compute the **User Equilibrium (UE)** assignment or the **System Optimal 
 
 The travel time cost function that models the effect of congestion on travel time is pluggable and definable by the users.
 
-Currently we provide three implementations:
+Currently, we provide three implementations:
 * BPR cost function ([see more](https://rdrr.io/rforge/travelr/man/bpr.function.html))
 * Greenshields cost function (see Greenshields, B. D., et al. "A study of traffic capacity." Highway research board proceedings. Vol. 1935. National Research Council (USA), Highway Research Board, 1935.)
 * Constant cost function (no congestion effects)
