@@ -2,8 +2,7 @@ from pathlib import Path
 
 
 def get_project_root() -> Path:
-    return Path(__file__).resolve().parent.parent.absolute()
-
+    return Path(__file__).resolve().parent.absolute()
 
 
 class PathUtils:
@@ -12,10 +11,9 @@ class PathUtils:
     """
 
     # FOLDERS
-    traffic_assingment_folder = get_project_root() / 'traffic_assignment'
 
     # Input netwroks
-    input_networks_folder = traffic_assingment_folder / "InputNetworks"
+    input_networks_folder = get_project_root() / "InputNetworks"
 
     # FILES
 

@@ -3,8 +3,8 @@ import time
 import heapq
 from scipy.optimize import fsolve
 
-from traffic_assignment.network_import import *
-from traffic_assignment.utils import PathUtils
+from network_import import *
+from utils import PathUtils
 
 
 class FlowTransportNetwork:
