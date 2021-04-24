@@ -29,5 +29,5 @@ The documentation of the method provides a through description of all the availa
  
  # Acknowledgments
  
-* This work is based on [Traffic-Assignment](https://github.com/prameshk/Traffic-Assignment). I focused on fixing this implementation and extanding it to pluggable cost functions and user optimal flows.
+* This work is based on [Traffic-Assignment](https://github.com/prameshk/Traffic-Assignment). I focused on fixing this implementation and extending it to pluggable cost functions and user optimal flows.
 * All the networks I used for testing the correctness of the algorithm are available at [TransportationNetworks](https://github.com/bstabler/TransportationNetworks).
