@@ -6,7 +6,7 @@ import heapq
 from scipy.optimize import fsolve
 import warnings
 
-from traffic_assignment.network_import import *
+from network_import import *
 from utils import PathUtils
 
 warnings.filterwarnings('ignore', 'The iteration is not making good progress')
@@ -565,10 +565,10 @@ def computeAssingment(net_file: str,
 
 
 if __name__ == '__main__':
-    total_system_travel_time = computeAssingment(net_file=str(PathUtils.grid_net_file_tntp),
+    total_system_travel_time = computeAssingment(net_file=str(PathUtils.sioux_falls_net_file),
                                                  algorithm="FW",
                                                  costFunction=BPRcostFunction,
-                                                 systemOptimal=True,
+                                                 systemOptimal=False,
                                                  verbose=True,
                                                  accuracy=0.001,
                                                  maxIter=1000,
