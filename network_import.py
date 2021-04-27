@@ -34,19 +34,15 @@ def import_network(network_file: str, demand_file: str):
         demand_df = pd.read_csv(str(demand_file_csv),
                                 sep='\t')
     else:
-        demand_mat = _demand_file2matrix(demand_file)
+        tripSet = _demand_file2trips(demand_file)
         demand_df = pd.DataFrame(columns=["init_node", "term_node", "demand"])
 
         k = 0
-        for row_number, row in enumerate(demand_mat):
-            for column_number, demand in enumerate(row):
-                # Commented because some networks contain flow from a node to itself
-                # if row_number == column_number:
-                #     assert demand == 0
-                # else:
-                demand_df.loc[k] = [row_number + 1, column_number + 1, demand]
+        for orig in tripSet:
+            for dest in tripSet[orig]:
+                demand_df.loc[k] = [orig, dest, tripSet[orig][dest]]
                 k += 1
-                # print("i, j=",row_number, column_number)
+
         demand_df = demand_df.astype({"init_node": int, "term_node": int})
 
         demand_df.to_csv(path_or_buf=str(demand_file_csv),
@@ -65,6 +61,24 @@ def _net_file2df(network_file: str):
     net_df.drop(['~', ';'], axis=1, inplace=True)
     return net_df
 
+def _demand_file2trips(demand_file: str):
+
+    f = open(demand_file, 'r')
+    all_rows = f.read()
+    f.close()
+    blocks = all_rows.split('Origin')[1:]
+    tripSet = {}
+    for k in range(len(blocks)):
+        orig = blocks[k].split('\n')
+        dests = orig[1:]
+        orig = int(orig[0])
+        d = [eval('{' + a.replace(';', ',').replace(' ', '') + '}') for a in dests]
+        destinations = {}
+        for i in d:
+            destinations = {**destinations, **i}
+        tripSet[orig] = destinations
+
+    return tripSet
 
 def _demand_file2matrix(demand_file: str, omx_write_file_path: str = None):  # Remember .omx
 
@@ -98,3 +112,4 @@ def _demand_file2matrix(demand_file: str, omx_write_file_path: str = None):  # R
         myfile.close()
 
     return mat
+
