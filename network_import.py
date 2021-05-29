@@ -1,10 +1,11 @@
 import pandas as pd
 import numpy as np
 import openmatrix as omx
-from pathlib import Path
+
+from utils import PathUtils
 
 
-def import_network(network_file: str, demand_file: str):
+def import_network(network_file: str, demand_file: str, force_reprocess: bool = False):
     """
     This method imports the network and the demand from the respective tntp files (see ttps://github.com/bstabler/TransportationNetworks)
     After having imported them, it stores them in a quicker format in the same directory as the input files,
@@ -12,16 +13,17 @@ def import_network(network_file: str, demand_file: str):
 
     :param network_file: network (net) file name
     :param demand_file: demand (trips) file name
-    :return:
+    :param force_reprocess: True if the network should be reprocessed from the tntp file
+    :return: None
     """
 
-    network_file_csv = network_file.split(".")[0] + ".csv"
-    demand_file_csv = demand_file.split(".")[0] + ".csv"
+    network_file_csv = network_file.split(".")[0].split("/")[-1] + ".csv"
+    demand_file_csv = demand_file.split(".")[0].split("/")[-1] + ".csv"
 
-    network_file_csv = Path(network_file_csv)
-    demand_file_csv = Path(demand_file_csv)
+    network_file_csv = PathUtils.processed_networks_folder / network_file_csv
+    demand_file_csv = PathUtils.processed_networks_folder / demand_file_csv
 
-    if network_file_csv.is_file():
+    if network_file_csv.is_file() and not force_reprocess:
         net_df = pd.read_csv(str(network_file_csv),
                              sep='\t')
     else:
@@ -30,7 +32,7 @@ def import_network(network_file: str, demand_file: str):
                       sep='\t',
                       index=False)
 
-    if demand_file_csv.is_file():
+    if demand_file_csv.is_file() and not force_reprocess:
         demand_df = pd.read_csv(str(demand_file_csv),
                                 sep='\t')
     else:
