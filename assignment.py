@@ -10,7 +10,6 @@ from scipy.optimize import fsolve
 from network_import import *
 from utils import PathUtils
 
-warnings.filterwarnings('ignore', 'The iteration is not making good progress')
 
 class FlowTransportNetwork:
 
