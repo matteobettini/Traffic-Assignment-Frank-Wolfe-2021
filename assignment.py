@@ -375,7 +375,6 @@ def assignment_loop(network: FlowTransportNetwork,
     gap = np.inf
     TSTT = np.inf
     assignmentStartTime = time.time()
-    gaps = []
 
     # Check if desired accuracy is reached
     while gap > accuracy:
