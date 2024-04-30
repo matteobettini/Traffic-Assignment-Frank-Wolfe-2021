@@ -1,11 +1,9 @@
 import heapq
 import math
 import time
-import warnings
 
 import networkx as nx
 import scipy
-from scipy.optimize import fsolve
 
 from network_import import *
 from utils import PathUtils
