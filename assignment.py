@@ -1,10 +1,11 @@
+import heapq
 import math
 import time
-import heapq
-import networkx as nx
-
-from scipy.optimize import fsolve
 import warnings
+
+import networkx as nx
+import scipy
+from scipy.optimize import fsolve
 
 from network_import import *
 from utils import PathUtils
@@ -221,7 +222,7 @@ def findAlpha(x_bar, network: FlowTransportNetwork, optimal: bool = False, costF
     """
 
     def df(alpha):
-        alpha = max(0, min(1, alpha))
+        assert 0 <= alpha <= 1
         sum_derivative = 0  # this line is the derivative of the objective function.
         for l in network.linkSet:
             tmpFlow = alpha * x_bar[l] + (1 - alpha) * network.linkSet[l].flow
@@ -237,8 +238,9 @@ def findAlpha(x_bar, network: FlowTransportNetwork, optimal: bool = False, costF
             sum_derivative = sum_derivative + (x_bar[l] - network.linkSet[l].flow) * tmpCost
         return sum_derivative
 
-    sol = fsolve(df, np.array([0.5]))
-    return max(0, min(1, sol[0]))
+    sol = scipy.optimize.root_scalar(df, x0=np.array([0.5]), bracket=(0, 1))
+    assert 0 <= sol.root <= 1
+    return sol.root
 
 
 def tracePreds(dest, network: FlowTransportNetwork):
