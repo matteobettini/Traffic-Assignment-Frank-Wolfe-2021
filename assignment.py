@@ -221,7 +221,6 @@ def findAlpha(x_bar, network: FlowTransportNetwork, optimal: bool = False, costF
     """
 
     def df(alpha):
-        alpha = max(0, min(1, alpha))
         sum_derivative = 0  # this line is the derivative of the objective function.
         for l in network.linkSet:
             tmpFlow = alpha * x_bar[l] + (1 - alpha) * network.linkSet[l].flow
@@ -376,6 +375,7 @@ def assignment_loop(network: FlowTransportNetwork,
     gap = np.inf
     TSTT = np.inf
     assignmentStartTime = time.time()
+    gaps = []
 
     # Check if desired accuracy is reached
     while gap > accuracy:
@@ -590,7 +590,7 @@ if __name__ == '__main__':
                                                              costFunction=BPRcostFunction,
                                                              systemOptimal=False,
                                                              verbose=True,
-                                                             accuracy=0.001,
+                                                             accuracy=0.000001,
                                                              maxIter=1000,
                                                              maxTime=6000000)
 
