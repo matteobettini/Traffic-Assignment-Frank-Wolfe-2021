@@ -1,6 +1,6 @@
 # Traffic-Assignment-Frank-Wolfe-2021
 
-This simple script computes the traffic assignment using the **Frank-Wolfe algorithm (FW)** or the **Method of successive averages (MSA)**.
+This script computes the traffic assignment using the **Frank-Wolfe algorithm (FW)** or the **Method of successive averages (MSA)**.
 
 It can compute the **User Equilibrium (UE)** assignment or the **System Optimal (SO)** assignment.
 
@@ -26,6 +26,17 @@ The documentation of the method provides a through description of all the availa
  
  A through description of the TNTP format and a wide range of real transportation networks to test the algorithm on is avaialble at [TransportationNetworks](https://github.com/bstabler/TransportationNetworks).
 
+# Cite
+
+```bib
+@misc{Bettini2021Traffic,
+  author =       {Matteo Bettini},
+  title =        {Static traffic assignment using user equilibrium and system optimum},
+  howpublished = {GitHub},
+  year =         {2021},
+  url =          {https://github.com/MatteoBettini/Traffic-Assignment-Frank-Wolfe-2021}
+}
+```
  
  # Acknowledgments
  
